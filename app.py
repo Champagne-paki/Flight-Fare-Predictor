@@ -6,7 +6,7 @@ import pandas as pd
 
 
 app = Flask(__name__)
-model = pickle.load(open("c1_flight_rf.pkl", "rb"))
+model = pickle.load(open("2c_flight_rf.pkl", "rb"))
 
 
 @app.route("/")
@@ -21,9 +21,9 @@ def predict():
 
         # Date_of_Journey
         date_dep = request.form["Dep_Time"]
-        journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
-        journey_month = int(pd.to_datetime(date_dep, format ="%Y-%m-%dT%H:%M").month)
-        # print("Journey Date : ",Journey_day, Journey_month)
+        Journey_Day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
+        Journey_Month = int(pd.to_datetime(date_dep, format ="%Y-%m-%dT%H:%M").month)
+        # print("Journey Date : ",Journey_Day, Journey_Month)
 
         # Departure
         dep_hour = int(pd.to_datetime(date_dep, format ="%Y-%m-%dT%H:%M").hour)
@@ -37,8 +37,8 @@ def predict():
         # print("Arrival : ", Arrival_hour, Arrival_min)
 
         # Duration
-        Duration_hour = abs(arrival_hour - dep_hour)
-        Duration_mins = abs(arrival_min - dep_min)
+        duration_hours = abs(arrival_hour - dep_hour)
+        duration_mins = abs(arrival_min - dep_min)
         # print("Duration : ", dur_hour, dur_min)
 
         # Total Stops
@@ -196,14 +196,14 @@ def predict():
 
         prediction=model.predict([[
             Total_Stops,
-            journey_day,
-            journey_month,
+            Journey_Day,
+            Journey_Month,
             dep_hour,
             dep_min,
             arrival_hour,
             arrival_min,
-            Duration_hour,
-            Duration_mins,
+            duration_hours,
+            duration_mins,
             Airline_AirIndia,
             Airline_GoAir,
             Airline_IndiGo,
