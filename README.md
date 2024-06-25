@@ -29,7 +29,7 @@
         deactivate                              # close virtual environment once done
   
 
-### How to run Flight Fare Predictor App - on Mac
+## How to run Flight Fare Predictor App - on Mac
 
 * Prerequisites: [Python 3.11](https://www.python.org/downloads/)
 * Open Terminal >> navigate to working directory >> Clone this Github Repo (or download project files from GitHub directly)
