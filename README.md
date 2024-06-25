@@ -10,5 +10,6 @@
   - Air carrier
 * This project required an ample amount of feature engineering and data preprocessing as the independent features are categorical, hence OneHotEncoding and LabelEncoder were used to convert these independent features to numerical values.
 ## App Demo
-![](templates/flight fare predictor demo.gif)
+![](templates/flight_fare_predictor_demo.gif)
+
 
